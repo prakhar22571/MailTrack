@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>MailTrack Settings</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        max-width: 480px;
+        margin: 32px auto;
+        color: #202124;
+      }
+      label {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 16px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 4px;
+        box-sizing: border-box;
+        font-size: 13px;
+      }
+      .hint {
+        font-size: 11px;
+        color: #5f6368;
+        margin-top: 4px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 8px 16px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      #saved {
+        font-size: 12px;
+        color: #1a73e8;
+        margin-left: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>MailTrack Settings</h2>
+
+    <label for="server-url">Backend server URL</label>
+    <input type="text" id="server-url" placeholder="https://mailtrack-server.<you>.workers.dev" />
+    <div class="hint">The Cloudflare Worker URL from `wrangler deploy` (or your local dev URL while testing).</div>
+
+    <div class="row">
+      <input type="checkbox" id="tracking-default" />
+      <label for="tracking-default" style="margin: 0">Enable tracking by default on new emails</label>
+    </div>
+
+    <div class="row">
+      <input type="checkbox" id="notifications-enabled" />
+      <label for="notifications-enabled" style="margin: 0">Notify me when a tracked email is opened</label>
+    </div>
+
+    <button id="save">Save</button>
+    <span id="saved"></span>
+
+    <script type="module" src="options.ts"></script>
+  </body>
+</html>

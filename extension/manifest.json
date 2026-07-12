@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "MailTrack (Free)",
+  "version": "0.1.0",
+  "description": "Free, self-hosted Gmail read-receipts and link-click tracking.",
+  "icons": {
+    "16": "public/icons/icon16.png",
+    "48": "public/icons/icon48.png",
+    "128": "public/icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": "public/icons/icon48.png"
+  },
+  "options_page": "src/options/options.html",
+  "background": {
+    "service_worker": "src/background/service-worker.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["src/content/gmail-inject.ts"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": ["storage", "alarms", "notifications"],
+  "host_permissions": ["https://mail.google.com/*", "https://*.workers.dev/*"]
+}

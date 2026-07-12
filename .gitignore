@@ -8,3 +8,4 @@ extension/public/icons/*.png
 .cf_api_token
 *.env
 .env*
+.dev.vars

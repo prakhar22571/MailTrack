@@ -4,6 +4,7 @@ import type { Env, Variables } from "./types";
 import { emailsRoute } from "./routes/emails";
 import { pixelRoute } from "./routes/pixel";
 import { clickRoute } from "./routes/click";
+import { dashboardRoute } from "./routes/dashboard";
 
 const app = new Hono<{ Bindings: Env; Variables: Variables }>();
 
@@ -25,5 +26,6 @@ app.get("/", (c) => c.text("mailtrack-server ok"));
 app.route("/api/emails", emailsRoute);
 app.route("/p", pixelRoute);
 app.route("/c", clickRoute);
+app.route("/dashboard", dashboardRoute);
 
 export default app;

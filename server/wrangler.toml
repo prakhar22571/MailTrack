@@ -5,4 +5,4 @@ compatibility_date = "2024-11-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "mailtrack"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "e573da75-9ee0-45be-90d6-9087b091a86d"

@@ -2,10 +2,17 @@ import { STORAGE_KEYS, DEFAULT_SERVER_BASE_URL } from "../lib/config";
 
 const serverUrlInput = document.getElementById("server-url") as HTMLInputElement;
 const apiKeyInput = document.getElementById("api-key") as HTMLInputElement;
+const apiKeyToggle = document.getElementById("api-key-toggle") as HTMLButtonElement;
 const trackingDefaultInput = document.getElementById("tracking-default") as HTMLInputElement;
 const notificationsInput = document.getElementById("notifications-enabled") as HTMLInputElement;
 const saveButton = document.getElementById("save") as HTMLButtonElement;
 const savedLabel = document.getElementById("saved") as HTMLSpanElement;
+
+apiKeyToggle.addEventListener("click", () => {
+  const isHidden = apiKeyInput.type === "password";
+  apiKeyInput.type = isHidden ? "text" : "password";
+  apiKeyToggle.textContent = isHidden ? "Hide" : "Show";
+});
 
 async function load(): Promise<void> {
   const data = await chrome.storage.sync.get([

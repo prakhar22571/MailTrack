@@ -16,7 +16,8 @@
         font-weight: 500;
         margin-top: 16px;
       }
-      input[type="text"] {
+      input[type="text"],
+      input[type="password"] {
         width: 100%;
         padding: 8px;
         margin-top: 4px;
@@ -33,6 +34,21 @@
         align-items: center;
         gap: 8px;
         margin-top: 16px;
+      }
+      .input-row {
+        display: flex;
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .input-row input {
+        flex: 1;
+        margin-top: 0;
+      }
+      .input-row button {
+        margin-top: 0;
+        padding: 8px 12px;
+        font-size: 12px;
+        white-space: nowrap;
       }
       button {
         margin-top: 20px;
@@ -55,7 +71,15 @@
     <div class="hint">The Cloudflare Worker URL from `wrangler deploy` (or your local dev URL while testing).</div>
 
     <label for="api-key">API key</label>
-    <input type="text" id="api-key" placeholder="Same value as the API_KEY secret on the backend" />
+    <div class="input-row">
+      <input
+        type="password"
+        id="api-key"
+        placeholder="Same value as the API_KEY secret on the backend"
+        autocomplete="off"
+      />
+      <button type="button" id="api-key-toggle">Show</button>
+    </div>
     <div class="hint">Must match the API_KEY secret set via `wrangler secret put API_KEY` on the backend - any value works as long as both sides agree.</div>
 
     <div class="row">
